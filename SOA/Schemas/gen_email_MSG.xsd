@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://xmlns.oracle.com/MySOAPractice/soa-generuj-email/gen_email_MSG" elementFormDefault="qualified">
+  <xsd:element name="genEmailRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="vstup">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="meno" type="xsd:string"/>
+              <xsd:element name="priezvisko" type="xsd:string"/>
+              <xsd:element name="domena" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="genEmailResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="email" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

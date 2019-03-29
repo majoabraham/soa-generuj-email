@@ -11,6 +11,25 @@
            xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
            xmlns:ui="http://xmlns.oracle.com/soa/designer/"
            xmlns:sca-ext="http://xmlns.oracle.com/sca/1.0-ext">
+  <import namespace="http://xmlns.oracle.com/MySOAPractice/soa_generuj_email/genEmailProcess"
+          location="WSDLs/genEmailProcess.wsdl" importType="wsdl"/>
+  <service name="genemailprocess_client_ep" ui:wsdlLocation="WSDLs/genEmailProcess.wsdl">
+    <interface.wsdl interface="http://xmlns.oracle.com/MySOAPractice/soa_generuj_email/genEmailProcess#wsdl.interface(genEmailProcess)"/>
+    <binding.ws port="http://xmlns.oracle.com/MySOAPractice/soa_generuj_email/genEmailProcess#wsdl.endpoint(genemailprocess_client_ep/genEmailProcess_pt)"/>
+  </service>
   <property name="productVersion" type="xs:string" many="false">12.2.1.3.0.170820</property>
   <property name="compositeID" type="xs:string" many="false">96a117cf-c437-4fbf-8ea4-5f2e20f51309</property>
+  <component name="genEmailProcess" version="2.0">
+    <implementation.bpel src="BPEL/genEmailProcess.bpel"/>
+    <componentType>
+      <service name="genemailprocess_client" ui:wsdlLocation="WSDLs/genEmailProcess.wsdl">
+        <interface.wsdl interface="http://xmlns.oracle.com/MySOAPractice/soa_generuj_email/genEmailProcess#wsdl.interface(genEmailProcess)"/>
+      </service>
+    </componentType>
+    <property name="bpel.config.transaction" type="xs:string" many="false">required</property>
+  </component>
+  <wire>
+    <source.uri>genemailprocess_client_ep</source.uri>
+    <target.uri>genEmailProcess/genemailprocess_client</target.uri>
+  </wire>
 </composite>
