@@ -72,7 +72,7 @@
     <receive name="receiveInput" partnerLink="genemailprocess_client" portType="client:genEmailProcess" operation="process" variable="inputVariable" createInstance="yes"/>
     <assign name="AssignEmail">
       <copy>
-        <from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns1:vstup/ns1:meno + '.' + $inputVariable.payload/ns1:vstup/ns1:priezvisko + '@' + $inputVariable.payload/ns1:vstup/ns1:domena</from>
+        <from expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">concat($inputVariable.payload/ns1:vstup/ns1:meno, ".", $inputVariable.payload/ns1:vstup/ns1:priezvisko, "@", $inputVariable.payload/ns1:vstup/ns1:domena)</from>
         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:email</to>
       </copy>
     </assign>
