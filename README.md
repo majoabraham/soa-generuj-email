@@ -16,7 +16,7 @@
 	- funkcionalita vytvorena cez priradenie AssignEmail
 	
 - opis procesu je vo WSDL
-  - abstraktny WSDL
+  - abstraktny WSDL genEmailProcess.wsdl
   - konkretny WSDL sa vytvori po nasadeni na aplikacny server
   
 - na nasadenie pouzivam aplikacny server WebLogic Server 
@@ -27,4 +27,5 @@
 - a endpoint 
 	- u mna http://localhost:7101/soa-infra/services/default/soa-generuj-email/genemailprocess_client_ep
 	
-- test je mozny priamo na aplikacnom serveri, ale neodporuca sa to, testujem pomocou nastroja SoapUI
+- test je mozny priamo na aplikacnom serveri, ale neodporuca sa to, testujem pomocou nastroja SoapUI,
+pricom projekt je SOAP projekt a vlozim konkretne WSDL
